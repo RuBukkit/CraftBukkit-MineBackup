@@ -1,5 +1,10 @@
 package ltguide.minebackup;
 
+import java.util.Arrays;
+import java.util.Calendar;
+import java.util.HashSet;
+import java.util.LinkedHashSet;
+import java.util.concurrent.Future;
 import ltguide.minebackup.configuration.Config;
 import ltguide.minebackup.configuration.Persist;
 import ltguide.minebackup.configuration.Strings;
@@ -13,23 +18,17 @@ import ltguide.minebackup.utils.MySqlUtils;
 import org.bukkit.Bukkit;
 import org.bukkit.World;
 
-import java.util.Arrays;
-import java.util.Calendar;
-import java.util.HashSet;
-import java.util.LinkedHashSet;
-import java.util.concurrent.Future;
-
 public class MineBackup extends Base {
     private int processId = -1;
     private int uploadId = -1;
     private final TaskProcess process = new TaskProcess(this);
     private final TaskUpload upload = new TaskUpload(this);
-    private final HashSet<String> working = new HashSet<String>();
+    private final HashSet<String> working = new HashSet<>();
     public Config config;
     public Strings strings;
     public Persist persist;
     public DropBoxUtils dropBoxUtils;
-    public LinkedHashSet<String> actions = new LinkedHashSet<String>(Arrays.asList("save", "copy", "compress", "cleanup", "dropbox", "ftp", "mysql"));
+    public LinkedHashSet<String> actions = new LinkedHashSet<>(Arrays.asList("save", "copy", "compress", "cleanup", "dropbox", "ftp", "mysql"));
     public MySqlUtils mySqlUtils;
 
     @Override

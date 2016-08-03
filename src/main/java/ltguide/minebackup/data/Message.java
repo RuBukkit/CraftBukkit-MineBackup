@@ -1,9 +1,8 @@
 package ltguide.minebackup.data;
 
+import java.util.IllegalFormatException;
 import ltguide.minebackup.Base;
 import org.bukkit.ChatColor;
-
-import java.util.IllegalFormatException;
 
 public class Message {
     private final Base plugin;

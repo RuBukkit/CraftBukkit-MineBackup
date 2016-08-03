@@ -1,5 +1,12 @@
 package ltguide.minebackup.threads;
 
+import java.io.File;
+import java.io.FilenameFilter;
+import java.io.IOException;
+import java.sql.Connection;
+import java.sql.SQLException;
+import java.util.*;
+import java.util.Map.Entry;
 import ltguide.minebackup.Debug;
 import ltguide.minebackup.MineBackup;
 import ltguide.minebackup.data.Process;
@@ -8,18 +15,10 @@ import ltguide.minebackup.utils.ZipUtils;
 import org.bukkit.Bukkit;
 import org.bukkit.World;
 
-import java.io.File;
-import java.io.FilenameFilter;
-import java.io.IOException;
-import java.sql.Connection;
-import java.sql.SQLException;
-import java.util.*;
-import java.util.Map.Entry;
-
 public class TaskProcess extends Thread {
     private final MineBackup plugin;
     private boolean quick;
-    private final SortedSet<Process> queue = new TreeSet<Process>(Process.comparator);
+    private final SortedSet<Process> queue = new TreeSet<>(Process.comparator);
     private long msecs;
     private long startTime;
 
@@ -44,7 +43,7 @@ public class TaskProcess extends Thread {
         LinkedHashSet<String> actions = plugin.actions;
         if (delay > 0) {
             reload();
-            actions = new LinkedHashSet<String>(actions);
+            actions = new LinkedHashSet<>(actions);
             actions.remove("dropbox");
             actions.remove("ftp");
         }
@@ -96,7 +95,7 @@ public class TaskProcess extends Thread {
     }
 
     public void fillUploadQueue() {
-        final HashSet<String> actions = new HashSet<String>(Arrays.asList("dropbox", "ftp"));
+        final HashSet<String> actions = new HashSet<>(Arrays.asList("dropbox", "ftp"));
 
         for (final String name : plugin.config.getOthers())
             fillUploadQueue(actions, "others", name);
@@ -301,7 +300,7 @@ public class TaskProcess extends Thread {
         final Calendar calendar = Calendar.getInstance();
         calendar.add(Calendar.SECOND, (int) (plugin.config.getDouble("destination.timezone-offset", 0) * 3600));
 
-        final Map<String, String> formats = new HashMap<String, String>();
+        final Map<String, String> formats = new HashMap<>();
         formats.put("%Y", String.valueOf(calendar.get(Calendar.YEAR)));
         formats.put("%M", padZero(calendar.get(Calendar.MONTH) + 1));
         formats.put("%D", padZero(calendar.get(Calendar.DAY_OF_MONTH)));

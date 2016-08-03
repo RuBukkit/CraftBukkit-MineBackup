@@ -1,13 +1,12 @@
 package ltguide.minebackup.data;
 
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
 import ltguide.minebackup.Base;
 import ltguide.minebackup.exceptions.CommandException;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
-
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
 
 public class Command {
     private final Base plugin;
@@ -99,7 +98,7 @@ public class Command {
 
         if (!hasPermission()) throw new CommandException(plugin.getMessage("PERMISSION"));
 
-        args = new ArrayList<String>(Arrays.asList(list));
+        args = new ArrayList<>(Arrays.asList(list));
         args.remove(0);
 
         if (usesTarget) {

@@ -1,9 +1,8 @@
 package ltguide.minebackup.utils;
 
+import java.io.*;
 import ltguide.minebackup.Base;
 import ltguide.minebackup.Debug;
-
-import java.io.*;
 
 public class DirUtils {
     public static void delete(final File target) {

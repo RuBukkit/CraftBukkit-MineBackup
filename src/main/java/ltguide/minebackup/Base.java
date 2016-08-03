@@ -1,5 +1,8 @@
 package ltguide.minebackup;
 
+import java.util.*;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import ltguide.minebackup.data.Command;
 import ltguide.minebackup.data.ICommand;
 import ltguide.minebackup.data.Message;
@@ -13,17 +16,13 @@ import org.bukkit.entity.Player;
 import org.bukkit.plugin.RegisteredServiceProvider;
 import org.bukkit.plugin.java.JavaPlugin;
 
-import java.util.*;
-import java.util.logging.Level;
-import java.util.logging.Logger;
-
 public class Base extends JavaPlugin {
     public static final int bufferSize = 4 * 1024;
     private static Permission permission = null;
     private static Economy economy = null;
 
-    public LinkedHashMap<String, Command> commands = new LinkedHashMap<String, Command>();
-    public HashMap<String, Message> messages = new HashMap<String, Message>();
+    public LinkedHashMap<String, Command> commands = new LinkedHashMap<>();
+    public HashMap<String, Message> messages = new HashMap<>();
     private boolean debug = true;
     private Logger logger;
     private long startTime;
@@ -171,7 +170,7 @@ public class Base extends JavaPlugin {
         }
 
         int c;
-        final Map<String, Integer> map = new TreeMap<String, Integer>();
+        final Map<String, Integer> map = new TreeMap<>();
         map.put("d", 86400);
         map.put("h", 3600);
         map.put("m", 60);
@@ -232,7 +231,7 @@ public class Base extends JavaPlugin {
     }
 
     public String joinPlayers(final List<Player> players) {
-        final List<String> strings = new ArrayList<String>();
+        final List<String> strings = new ArrayList<>();
         for (final Player player : players)
             strings.add(player.getName());
 

@@ -1,5 +1,9 @@
 package ltguide.minebackup.configuration;
 
+import java.io.File;
+import java.io.FilenameFilter;
+import java.util.*;
+import java.util.zip.Deflater;
 import ltguide.minebackup.Base;
 import ltguide.minebackup.Debug;
 import ltguide.minebackup.MineBackup;
@@ -8,13 +12,8 @@ import ltguide.minebackup.data.SourceFilenameFilter;
 import ltguide.minebackup.utils.HttpUtils;
 import org.bukkit.configuration.ConfigurationSection;
 
-import java.io.File;
-import java.io.FilenameFilter;
-import java.util.*;
-import java.util.zip.Deflater;
-
 public class Config extends Configuration {
-    public final Set<String> loaded = new HashSet<String>();
+    public final Set<String> loaded = new HashSet<>();
 
     public Config(final Base instance) {
         super(instance);
@@ -33,7 +32,7 @@ public class Config extends Configuration {
 
     @Override
     protected void migrate() {
-        final HashMap<String, Object> map = new HashMap<String, Object>();
+        final HashMap<String, Object> map = new HashMap<>();
 
         if (migrate(5, 9, 5)) {
             if (Debug.ON) Debug.info("here comes mysql settings");
@@ -223,7 +222,7 @@ public class Config extends Configuration {
     }
 
     private void checkMapFormat(final File dir) {
-        final List<String> files = new ArrayList<String>();
+        final List<String> files = new ArrayList<>();
 
         if (new File(dir, "level.dat_mcr").exists()) files.add("level.dat_mcr");
 

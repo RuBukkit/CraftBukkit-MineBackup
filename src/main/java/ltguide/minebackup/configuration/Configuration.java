@@ -1,5 +1,9 @@
 package ltguide.minebackup.configuration;
 
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.IOException;
+import java.io.InputStream;
 import ltguide.minebackup.Base;
 import ltguide.minebackup.Debug;
 import ltguide.minebackup.utils.DirUtils;
@@ -7,11 +11,6 @@ import org.bukkit.configuration.ConfigurationSection;
 import org.bukkit.configuration.InvalidConfigurationException;
 import org.bukkit.configuration.file.YamlConfiguration;
 import org.yaml.snakeyaml.error.YAMLException;
-
-import java.io.File;
-import java.io.FileNotFoundException;
-import java.io.IOException;
-import java.io.InputStream;
 
 public class Configuration extends YamlConfiguration {
     private final File file;

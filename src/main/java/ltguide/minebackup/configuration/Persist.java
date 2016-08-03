@@ -1,5 +1,7 @@
 package ltguide.minebackup.configuration;
 
+import java.io.File;
+import java.util.*;
 import ltguide.minebackup.Base;
 import ltguide.minebackup.Debug;
 import ltguide.minebackup.MineBackup;
@@ -8,9 +10,6 @@ import ltguide.minebackup.data.Upload;
 import ltguide.minebackup.utils.DirUtils;
 import org.bukkit.World;
 import org.bukkit.entity.Player;
-
-import java.io.File;
-import java.util.*;
 
 public class Persist extends Configuration {
 
@@ -86,7 +85,7 @@ public class Persist extends Configuration {
 		final String path = process.getType() + "." + process.getName() + ".keep";
 		
 		List<String> keep = getStringList(path);
-		if (keep == null) keep = new ArrayList<String>();
+		if (keep == null) keep = new ArrayList<>();
 		
 		if (target != null) keep.add(target.getPath());
 		
@@ -129,9 +128,9 @@ public class Persist extends Configuration {
 		if (!file.exists()) return false;
 		
 		List<Map<?, ?>> list = getMapList("upload");
-		if (list == null) list = new ArrayList<Map<?, ?>>();
+		if (list == null) list = new ArrayList<>();
 		
-		final HashMap<String, String> upload = new HashMap<String, String>();
+		final HashMap<String, String> upload = new HashMap<>();
 		upload.put("type", type);
 		upload.put("name", name);
 		

@@ -1,15 +1,14 @@
 package ltguide.minebackup.threads;
 
+import java.io.File;
+import java.io.FileNotFoundException;
+import javax.naming.AuthenticationException;
 import ltguide.minebackup.Debug;
 import ltguide.minebackup.MineBackup;
 import ltguide.minebackup.data.Upload;
 import ltguide.minebackup.exceptions.HttpException;
 import ltguide.minebackup.utils.HttpUtils;
 import sun.net.ftp.FtpLoginException;
-
-import javax.naming.AuthenticationException;
-import java.io.File;
-import java.io.FileNotFoundException;
 
 public class TaskUpload extends Thread {
     private final MineBackup plugin;
